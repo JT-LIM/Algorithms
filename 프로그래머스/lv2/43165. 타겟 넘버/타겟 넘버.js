@@ -12,9 +12,7 @@ function solution(numbers, target) {
             }
         }
         if (sum === target) answer++;
-    }
-    
-    
+    }    
     
     return answer;
 }
