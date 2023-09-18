@@ -1,18 +1,15 @@
 function solution(numbers, target) {
     let answer = 0;
-    
-    for (let i = 0; i < 1 << numbers.length; i++) {
-        let sum = 0;
-        
-        for (let j = 0; j < numbers.length; j++) {
-            if ((i & (1 << j)) === 0) { 
-                sum += numbers[j];
-            } else { 
-                sum -= numbers[j];
+    getAnswer(0,0);
+    function getAnswer(x,value) {
+        if(x<numbers.length){
+            getAnswer(x+1,value + numbers[x]);
+            getAnswer(x+1,value - numbers[x]);
+        } else{
+            if(value === target){
+                answer++
             }
         }
-        if (sum === target) answer++;
-    }    
-    
+    }
     return answer;
 }
