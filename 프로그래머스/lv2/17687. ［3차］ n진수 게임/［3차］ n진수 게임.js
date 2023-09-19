@@ -1,9 +1,16 @@
 function solution(n, t, m, p) {
-    var tubeT = Array.apply(null,Array(t)).map((a,i)=>i*m+p-1);
-    var line = '';
-    var max = m*t + p;
-    for (var i =0;line.length <= max; i++) {
-        line += i.toString(n);
+    let answer = '';
+    let maxNum = t * m;
+    let str = ''
+    
+    for (let i = 0; i < maxNum; i++) {
+        str += i.toString(n)
     }
-    return tubeT.map(a=>line[a]).join('').toUpperCase();
+    
+    for (let i = p - 1; i < maxNum; i += m) {
+        answer += str[i].toUpperCase();
+    }
+    
+        
+    return answer;
 }
